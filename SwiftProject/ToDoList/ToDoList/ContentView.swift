@@ -14,10 +14,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
         List {
-        Text("Hello World")
-        Text("Hello World")
-        Text("Hello World")
-        
+            ForEach(menu){ section in
+                Text(section.name)
+                
+                ForEach(section.items) { item in
+                    Text(item.name)
+                }
+            }
         }
         .navigationTitle("Menu")
         }
