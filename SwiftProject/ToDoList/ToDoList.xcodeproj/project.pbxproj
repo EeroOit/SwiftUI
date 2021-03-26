@@ -11,6 +11,7 @@
 		726E2C8A260DD460004D10DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726E2C89260DD460004D10DC /* ContentView.swift */; };
 		726E2C8C260DD461004D10DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726E2C8B260DD461004D10DC /* Assets.xcassets */; };
 		726E2C8F260DD461004D10DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726E2C8E260DD461004D10DC /* Preview Assets.xcassets */; };
+		726E2C98260DE2CC004D10DC /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 726E2C97260DE2CC004D10DC /* menu.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		726E2C8B260DD461004D10DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		726E2C8E260DD461004D10DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		726E2C90260DD461004D10DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726E2C97260DE2CC004D10DC /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				726E2C87260DD460004D10DC /* ToDoListApp.swift */,
 				726E2C89260DD460004D10DC /* ContentView.swift */,
 				726E2C8B260DD461004D10DC /* Assets.xcassets */,
+				726E2C97260DE2CC004D10DC /* menu.json */,
 				726E2C90260DD461004D10DC /* Info.plist */,
 				726E2C8D260DD461004D10DC /* Preview Content */,
 			);
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726E2C98260DE2CC004D10DC /* menu.json in Resources */,
 				726E2C8F260DD461004D10DC /* Preview Assets.xcassets in Resources */,
 				726E2C8C260DD461004D10DC /* Assets.xcassets in Resources */,
 			);
