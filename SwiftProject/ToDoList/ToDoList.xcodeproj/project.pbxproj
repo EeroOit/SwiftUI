@@ -17,6 +17,7 @@
 		726E2CA1260DE524004D10DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726E2CA0260DE524004D10DC /* Menu.swift */; };
 		726E2CA4260DEE68004D10DC /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726E2CA3260DEE68004D10DC /* ItemRow.swift */; };
 		726E2CAB2611DC47004D10DC /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726E2CAA2611DC47004D10DC /* ItemDetail.swift */; };
+		726E2CAE26131B33004D10DC /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726E2CAD26131B33004D10DC /* OrderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		726E2CA0260DE524004D10DC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		726E2CA3260DEE68004D10DC /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		726E2CAA2611DC47004D10DC /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
+		726E2CAD26131B33004D10DC /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				726E2C87260DD460004D10DC /* ToDoListApp.swift */,
 				726E2C89260DD460004D10DC /* ContentView.swift */,
 				726E2CAA2611DC47004D10DC /* ItemDetail.swift */,
+				726E2CAD26131B33004D10DC /* OrderView.swift */,
 				726E2CA3260DEE68004D10DC /* ItemRow.swift */,
 				726E2C8B260DD461004D10DC /* Assets.xcassets */,
 				726E2C97260DE2CC004D10DC /* menu.json */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				726E2CAB2611DC47004D10DC /* ItemDetail.swift in Sources */,
+				726E2CAE26131B33004D10DC /* OrderView.swift in Sources */,
 				726E2C8A260DD460004D10DC /* ContentView.swift in Sources */,
 				726E2C88260DD460004D10DC /* ToDoListApp.swift in Sources */,
 				726E2C9E260DE51E004D10DC /* Order.swift in Sources */,
