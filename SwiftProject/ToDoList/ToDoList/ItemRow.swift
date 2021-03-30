@@ -21,7 +21,7 @@ struct ItemRow: View {
             VStack(alignment: .leading) {
             Text(item.name)
                 .font(.headline)
-            Text("£\(item.price)")
+            Text("$\(item.price)")
             }
             
             Spacer()
