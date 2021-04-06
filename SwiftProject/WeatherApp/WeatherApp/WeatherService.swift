@@ -11,7 +11,18 @@ public final class WeatherService: NSObject {
     
 private let LocationManager = CLLocationManager()
     private let API_KEY = "1adfcdb6b64b59edcd01d5fae37b8f86"
-    private var completionHandler: (() -> Void? )
+    private var completionHandler: ((Weather) -> Void)?
+    
+    public func loadWeatherData (_ completionHandler: @escaping((Weather) -> Void)) {
+        self.completionHandler = completionHandler
+        LocationManager.requestWhenInUseAuthorization()
+        LocationManager.startUpdatingLocation()
+    }
+    //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+    private func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
+        guard let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(API_KEY)&units=metric"
+                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+    }
 }
 
 struct APIResponse: Decodable {
