@@ -11,6 +11,8 @@ struct WeatherApp: App {
     WindowGroup {
       let weatherService = WeatherService()
       WeatherView(viewModel: WeatherViewModel(weatherService: weatherService))
+        
+        
     }
   }
 }

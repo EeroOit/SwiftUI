@@ -11,17 +11,31 @@ struct WeatherView: View {
 
   var body: some View {
     VStack {
+        
       Text(viewModel.cityName)
         .font(.largeTitle)
         .padding()
+        .background(Color.white)
+        .cornerRadius(20.0)
       Text(viewModel.temperature)
         .font(.system(size: 70))
         .bold()
+        .background(Color.white)
+        .cornerRadius(20.0)
       Text(viewModel.weatherIcon)
         .font(.largeTitle)
         .padding()
+        .background(Color.white)
+        .cornerRadius(20.0)
       Text(viewModel.weatherDescription)
-    }
+        .background(Color.white)
+        .cornerRadius(20.0)
+
+        }
+    
+    
+    
+    
     .alert(isPresented: $viewModel.shouldShowLocationError) {
       Alert(
         title: Text("Error"),
@@ -33,6 +47,11 @@ struct WeatherView: View {
       )
     }
     .onAppear(perform: viewModel.refresh)
+    .background(
+    Image ("sky-4772434_1280")
+        .scaledToFill()
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        )
   }
 }
 
