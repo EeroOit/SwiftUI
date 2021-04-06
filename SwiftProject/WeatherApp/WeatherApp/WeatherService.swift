@@ -9,9 +9,14 @@ import Foundation
 
 public final class WeatherService: NSObject {
     
-private let LocationManager = CLLocationManager()
+    private let LocationManager = CLLocationManager()
     private let API_KEY = "1adfcdb6b64b59edcd01d5fae37b8f86"
     private var completionHandler: ((Weather) -> Void)?
+    
+    public override init() {
+        super.init()
+        locationManger.delegate = self
+    }
     
     public func loadWeatherData (_ completionHandler: @escaping((Weather) -> Void)) {
         self.completionHandler = completionHandler
@@ -34,6 +39,24 @@ private let LocationManager = CLLocationManager()
         }.resume()
     }
 }
+
+extension WeatherService: CLLocationManagerDelegate {
+    public func locationManager(
+    _ manager: CLLocationManager,
+    didUpdateLocations locations : [CLLocation]
+        ){
+        guard let location = locations.first else  { return }
+        makeDataRequest(forCoordinates: location.coordinate)
+        }
+    
+    public func LocationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: Error
+        ) {
+            print("Something went wrong: \(error.localizedDescription)")
+        }
+    }
+
 
 struct APIResponse: Decodable {
     let name: String
