@@ -13,6 +13,7 @@
 		72E1407C261B0B1600989551 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72E1407B261B0B1600989551 /* Preview Assets.xcassets */; };
 		72E14085261B0B8300989551 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E14084261B0B8300989551 /* WeatherService.swift */; };
 		72E14088261C45C700989551 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E14087261C45C700989551 /* Weather.swift */; };
+		72E1408C261C50D600989551 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1408B261C50D600989551 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		72E1407D261B0B1600989551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72E14084261B0B8300989551 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		72E14087261C45C700989551 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		72E1408B261C50D600989551 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				72E14074261B0B1000989551 /* WeatherAppApp.swift */,
 				72E14076261B0B1000989551 /* WeatherView.swift */,
 				72E14084261B0B8300989551 /* WeatherService.swift */,
+				72E1408B261C50D600989551 /* WeatherViewModel.swift */,
 				72E14078261B0B1600989551 /* Assets.xcassets */,
 				72E1407D261B0B1600989551 /* Info.plist */,
 				72E14087261C45C700989551 /* Weather.swift */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E1408C261C50D600989551 /* WeatherViewModel.swift in Sources */,
 				72E14088261C45C700989551 /* Weather.swift in Sources */,
 				72E14077261B0B1000989551 /* WeatherView.swift in Sources */,
 				72E14085261B0B8300989551 /* WeatherService.swift in Sources */,
