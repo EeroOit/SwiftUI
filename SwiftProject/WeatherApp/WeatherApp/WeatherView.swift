@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct WeatherView: View {
+    
+    @ObservedObject var viewModel: WeatherViewModel
+    
     var body: some View {
         VStack {
-            Text("Lappeeranta")
+            Text(viewModel.cityName)
                 .font(.largeTitle)
                 .padding()
-            Text("5°C")
+            Text(viewModel.temperature)
                 .font(.system(size: 70))
                 .bold()
-            Text("⛅️")
+            Text(viewModel.weatherIcon)
                 .font(.largeTitle)
                 .padding()
-            Text("Clear Sky")
-        }
+            Text(viewModel.weatherDescription)
+        }.onAppear(perform: viewModel.refresh)
     }
 }
 
