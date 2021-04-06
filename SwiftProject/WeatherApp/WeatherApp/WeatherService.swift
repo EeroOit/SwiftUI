@@ -22,6 +22,13 @@ private let LocationManager = CLLocationManager()
     private func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
         guard let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(API_KEY)&units=metric"
                 .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard error == nil, let data = data else { return }
+            
+        }
     }
 }
 
