@@ -44,21 +44,21 @@ struct LandmarkDetail: View {
                 Divider()
 
                 Text("About \(landmark.name)")
-                    .font(.title2)
-                Text(landmark.description)
-            }
-            .padding()
-        }
-        .navigationTitle(landmark.name)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
+                                   .font(.title2)
+                               Text(landmark.description)
+                           }
+                           .padding()
+                       }
+                       .navigationTitle(landmark.name)
+                       .navigationBarTitleDisplayMode(.inline)
+                   }
+               }
 
-struct LandmarkDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
+               struct LandmarkDetail_Previews: PreviewProvider {
+                   static let modelData = ModelData()
 
-    static var previews: some View {
-        LandmarkDetail(landmark: modelData.landmarks[0])
-            .environmentObject(modelData)
-    }
-}
+                   static var previews: some View {
+                       LandmarkDetail(landmark: modelData.landmarks[0])
+                           .environmentObject(modelData)
+                   }
+               }
