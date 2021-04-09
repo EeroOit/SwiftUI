@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct LandMarkList: View {
+struct LandmarkList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            LandmarkRow(landmark: landmarks[0])
+            LandmarkRow(landmark: landmarks[1])
+        }
     }
 }
 
-struct LandMarkList_Previews: PreviewProvider {
+struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
-        LandMarkList()
+        LandmarkList()
     }
 }
