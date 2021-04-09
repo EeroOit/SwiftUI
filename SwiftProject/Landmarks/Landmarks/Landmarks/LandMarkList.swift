@@ -29,6 +29,11 @@ struct LandmarkList: View {
                         LandmarkRow(landmark: landmark)
                     }
                 }
+                .onDelete(perform: { indexSet in
+                           for index in indexSet {
+                               self.modelData.landmarks.remove(at: index)
+                           }
+                       })
             }
             .navigationTitle("Landmarks")
         }

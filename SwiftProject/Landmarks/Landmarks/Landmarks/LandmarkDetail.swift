@@ -11,9 +11,18 @@ struct LandmarkDetail: View {
     @EnvironmentObject var modelData: ModelData
     var landmark: Landmark
 
+    //var landmarkIndex: Int {
+      //  modelData.landmarks.firstIndex(where: { $0.id == //landmark.id })!
+    //}
+    
     var landmarkIndex: Int {
-        modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
+        guard let index = modelData.landmarks.firstIndex(where: { return $0.id == landmark.id }) else {
+            return 0
+        }
+        return index
     }
+    
+    
 
     var body: some View {
         ScrollView {
