@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @State private var showingDeleteAlert = false
     @EnvironmentObject var modelData: ModelData
-    @Enviroment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.presentationMode) var presentationMode
     var landmark: Landmark
+
 
     //var landmarkIndex: Int {
       //  modelData.landmarks.firstIndex(where: { $0.id == //landmark.id })!
@@ -23,6 +26,10 @@ struct LandmarkDetail: View {
         return index
     }
     
+  
+
+    
+
     
 
     var body: some View {
@@ -52,6 +59,9 @@ struct LandmarkDetail: View {
                 .foregroundColor(.secondary)
 
                 Divider()
+                
+                
+
 
                 Text("About \(landmark.name)")
                                    .font(.title2)
@@ -61,8 +71,34 @@ struct LandmarkDetail: View {
                        }
                        .navigationTitle(landmark.name)
                        .navigationBarTitleDisplayMode(.inline)
-                   }
+        .alert(isPresented: $showingDeleteAlert) {
+                    Alert(title: Text("Confirmation"), message:Text("Are you  sure you want to delete"), primaryButton: .default(Text("yes")) { self.deleteBook(index: landmarkIndex)},
+                        secondaryButton: .destructive(Text("Cancel")))
+                        }
+        .navigationBarItems(trailing: Button(action: {
+            self.showingDeleteAlert = true
+        }){
+            Image(systemName: "trash")
+        }
+        )
+        
+    }
+   
+
+    public func deleteBook(index: Int) {
+        print("Deleted " + String(index))
+        modelData.landmarks.remove(at: index)
+        presentationMode.wrappedValue.dismiss()
+    }
+    
                }
+
+
+
+
+                
+
+
 
                struct LandmarkDetail_Previews: PreviewProvider {
                    static let modelData = ModelData()
