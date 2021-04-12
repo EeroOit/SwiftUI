@@ -72,7 +72,7 @@ struct LandmarkDetail: View {
                        .navigationTitle(landmark.name)
                        .navigationBarTitleDisplayMode(.inline)
         .alert(isPresented: $showingDeleteAlert) {
-                    Alert(title: Text("Confirmation"), message:Text("Are you  sure you want to delete"), primaryButton: .default(Text("yes")) { self.deleteBook(index: landmarkIndex)},
+                    Alert(title: Text("Confirmation"), message:Text("Are you  sure you want to delete?"), primaryButton: .default(Text("Yes")) { self.deleteBook(index: landmarkIndex)},
                         secondaryButton: .destructive(Text("Cancel")))
                         }
         .navigationBarItems(trailing: Button(action: {
