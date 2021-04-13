@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+enum CalcButtons {
+    case one
+    case two
+    case three
+    case four
+    case five
+    case six
+    case seven
+    case eight
+    case nine
+    case zero
+    case add
+    case subtract
+    case divde
+    case multiply
+    case equel
+    case decimal
+    case negative
+
+
+}
+
 struct ContentView: View {
     var body: some View {
         ZStack {
@@ -19,6 +41,7 @@ struct ContentView: View {
                         .font(.system(size: 50))
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 }
+                .padding()
             }
         }
     }
