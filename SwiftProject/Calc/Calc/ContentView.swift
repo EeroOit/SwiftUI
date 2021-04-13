@@ -30,6 +30,11 @@ enum CalcButtons {
 }
 
 struct ContentView: View {
+    
+    let buttons: [[CalcButtons]] = [
+        [.seven, . eight, .nine]
+    ]
+    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
