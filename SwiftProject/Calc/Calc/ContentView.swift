@@ -7,24 +7,25 @@
 
 import SwiftUI
 
-enum CalcButtons {
-    case one
-    case two
-    case three
-    case four
-    case five
-    case six
-    case seven
-    case eight
-    case nine
-    case zero
-    case add
-    case subtract
-    case divde
-    case multiply
-    case equel
-    case decimal
-    case negative
+enum CalcButtons: String {
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    case eight = "8"
+    case nine = "9"
+    case zero = "0"
+    case add = "+"
+    case subtract = "-"
+    case divide = "/"
+    case clear = "C"
+    case multiply = "*"
+    case equel = "="
+    case decimal = ","
+    case negative = "-/+"
 
 
 }
