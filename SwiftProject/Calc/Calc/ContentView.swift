@@ -28,6 +28,16 @@ enum CalcButtons: String {
     case percent = "%"
     case negative = "-/+"
 
+    var buttonColor: Color{
+        switch self {
+        case .add, .subtract, .multiply, .divide, .equal:
+            return .orange
+        case .clear, .negative, .percent:
+            return Color(.lightGray)
+        default:
+            return Color(.white)
+        }
+    }
 
 }
 
@@ -44,6 +54,7 @@ struct ContentView: View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack {
+                Spacer ()
                 HStack {
                     Spacer()
                     Text ("0")
@@ -54,25 +65,38 @@ struct ContentView: View {
                 .padding()
                 
                 ForEach(buttons, id: \.self) { row in
-                    HStack {
+                    HStack(spacing: 5) {
                         ForEach(row, id: \.self) { item in
                             Button(action: {
                                 
                             }, label: {
                                 Text(item.rawValue)
                                     .font(.system(size: 35))
-                                    .frame(width: 60, height: 60)
-                                    .background(Color.orange)
-                                    .foregroundColor(.blue)
-                                    .cornerRadius(30)
+                                    .frame(width: self.buttonWidth(item: item),
+                                           height: self.buttonHeight() )
+                                    .background(item.buttonColor)
+                                    .foregroundColor(.black)
+                                    .cornerRadius(self.buttonWidth(item: item)/10)
                         })
                     }
                 }
+                    .padding(.bottom, 3)
             }
         }
     }
   }
-}
+    //calculating button size to fit screen
+    func buttonWidth(item: CalcButtons) -> CGFloat {
+            if item == .zero {
+                return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+            }
+            return (UIScreen.main.bounds.width - (5*12)) / 4
+        }
+
+        func buttonHeight() -> CGFloat {
+            return (UIScreen.main.bounds.width - (5*12)) / 4
+        }
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
