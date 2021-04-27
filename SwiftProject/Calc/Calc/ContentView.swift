@@ -59,7 +59,7 @@ enum Operation {
 struct ContentView: View {
     
 @State var value = "0"
-@state var runningValue = "0"
+@State var runningValue = 0
 @State var currenOperation: Operation = .none
     
     let buttons: [[CalcButtons]] = [
@@ -107,7 +107,7 @@ struct ContentView: View {
   }
     func didTap(button: CalcButtons) {
         switch button {
-                case .add, .subtract, .mutliply, .divide, .equal:
+                case .add, .subtract, .multiply, .divide, .equal:
                     if button == .add {
                         self.currentOperation = .add
                         self.runningNumber = Int(self.value) ?? 0
