@@ -52,9 +52,15 @@ enum CalcButtons: String {
 
 }
 
+enum Operation {
+    case add, subtract, multiply, divide, none
+}
+
 struct ContentView: View {
     
 @State var value = "0"
+    
+    var currenOperation: Operation = .none
     
     let buttons: [[CalcButtons]] = [
         [.clear, .negative, .percent, .divide],
