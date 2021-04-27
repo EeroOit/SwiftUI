@@ -111,7 +111,11 @@ struct ContentView: View {
                    if button == .add {
                        self.currentOperation = .add
                        self.runningNumber = Int(self.value) ?? 0
-                   }	
+                   }
+                   else if button == .subtract {
+                                  self.currentOperation = .subtract
+                                  self.runningNumber = Int(self.value) ?? 0
+                              }
         
     }
     
