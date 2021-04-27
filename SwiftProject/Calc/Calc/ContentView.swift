@@ -27,8 +27,7 @@ enum CalcButtons: String {
     case decimal = ","
     case percent = "%"
     case negative = "-/+"
-    case square = "√"
-    case exponentiation = "x²"
+  
 
     var buttonBackgroundColor: Color{
         switch self {
@@ -61,11 +60,10 @@ enum Operation {
 struct ContentView: View {
     
     @State var value = "0"
-    @State var runningValue = 0
+    @State var runningValue: Double = 0
     @State var currentOperation: Operation = .none
     
     let buttons: [[CalcButtons]] = [
-        [.square, .exponentiation],
         [.clear, .negative, .percent, .divide,],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
@@ -110,34 +108,27 @@ struct ContentView: View {
   }
     func didTap(button: CalcButtons) {
         switch button {
-                case .add, .subtract, .multiply, .divide, .equal, .exponentiation, .square:
+        case .add, .subtract, .multiply, .divide, .equal:
                     if button == .add {
                         self.currentOperation = .add
-                        self.runningValue = Int(self.value) ?? 0
+                        self.runningValue = Double(self.value) ?? 0
                     }
                     else if button == .subtract {
                         self.currentOperation = .subtract
-                        self.runningValue = Int(self.value) ?? 0
+                        self.runningValue = Double(self.value) ?? 0
                     }
                     else if button == .multiply {
                         self.currentOperation = .multiply
-                        self.runningValue = Int(self.value) ?? 0
+                        self.runningValue = Double(self.value) ?? 0
                     }
                     else if button == .divide {
                         self.currentOperation = .divide
-                        self.runningValue = Int(self.value) ?? 0
+                        self.runningValue = Double(self.value) ?? 0
                     }
-                    else if button == .square {
-                        self.currentOperation = .square
-                        self.runningValue = Int(self.value) ?? 0
-                    }
-                    else if button == .exponentiation {
-                        self.currentOperation = .exponentiation
-                        self.runningValue = Int(self.value) ?? 0
-                    }
+                
                     else if button == .equal {
                         let runningValue = self.runningValue
-                        let currentValue = Int(self.value) ?? 0
+                        let currentValue = Double(self.value) ?? 0
                         switch self.currentOperation {
                         case .add: self.value = "\(runningValue + currentValue)"
                         case .subtract: self.value = "\(runningValue - currentValue)"
