@@ -54,7 +54,7 @@ enum CalcButtons: String {
 
 struct ContentView: View {
     
-
+@State var value = "0"
     
     let buttons: [[CalcButtons]] = [
         [.clear, .negative, .percent, .divide],
@@ -72,8 +72,8 @@ struct ContentView: View {
                     Spacer()
                     Text (value)
                         .bold()
-                        .font(.system(size: 50))
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 80))
+                        .foregroundColor(.white)
                 }
                 .padding()
                 
@@ -81,6 +81,7 @@ struct ContentView: View {
                     HStack(spacing: 5) {
                         ForEach(row, id: \.self) { item in
                             Button(action: {
+                                self.didTap(button: item)
                                 
                             }, label: {
                                 Text(item.rawValue)
@@ -98,6 +99,10 @@ struct ContentView: View {
         }
     }
   }
+    func didTap(button: CalcButtons) {
+        
+    }
+    
     //calculating button size to fit screen
     func buttonWidth(item: CalcButtons) -> CGFloat {
             if item == .zero {
