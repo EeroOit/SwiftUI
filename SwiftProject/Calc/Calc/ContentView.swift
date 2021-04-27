@@ -120,6 +120,10 @@ struct ContentView: View {
                                   self.currentOperation = .multiply
                                   self.runningNumber = Int(self.value) ?? 0
                               }
+                   else if button == .divide {
+                                   self.currentOperation = .divide
+                                   self.runningNumber = Int(self.value) ?? 0
+                               }
         
     }
     
