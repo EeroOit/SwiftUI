@@ -47,9 +47,25 @@ struct ContentView: View {
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 }
                 .padding()
+                
+                ForEach(buttons, id: \.self) { row in
+                    HStack {
+                        ForEach(row, id: \.self) { item in
+                            Button(action: {
+                                
+                            }, label: {
+                                Text(item.rawValue)
+                                    .frame(width: 60, height: 60)
+                                    .background(Color.orange)
+                                    .foregroundColor(.blue)
+                                    .cornerRadius(30)
+                        })
+                    }
+                }
             }
         }
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
