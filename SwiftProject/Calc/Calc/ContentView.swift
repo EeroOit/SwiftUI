@@ -116,6 +116,10 @@ struct ContentView: View {
                                   self.currentOperation = .subtract
                                   self.runningNumber = Int(self.value) ?? 0
                               }
+                   else if button == .mutliply {
+                                  self.currentOperation = .multiply
+                                  self.runningNumber = Int(self.value) ?? 0
+                              }
         
     }
     
