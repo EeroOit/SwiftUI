@@ -130,7 +130,8 @@ struct ContentView: View {
                         switch self.currentOperation {
                         case .add: self.value = "\(runningValue + currentValue)"
                         case .subtract: self.value = "\(runningValue - currentValue)"
-                        
+                        case .multiply: self.value = "\(runningValue * currentValue)"
+                        case .divide: self.value = "\(runningValue / currentValue)"
                         case .none:
                             break
                         }
