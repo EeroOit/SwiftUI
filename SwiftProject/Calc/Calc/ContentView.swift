@@ -23,8 +23,9 @@ enum CalcButtons: String {
     case divide = "/"
     case clear = "C"
     case multiply = "*"
-    case equel = "="
+    case equal = "="
     case decimal = ","
+    case percent = "%"
     case negative = "-/+"
 
 
@@ -33,8 +34,11 @@ enum CalcButtons: String {
 struct ContentView: View {
     
     let buttons: [[CalcButtons]] = [
-        [.seven, . eight, .nine]
-    ]
+        [.clear, .negative, .percent, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .subtract],
+        [.one, .two, .three, .add],
+        [.zero, .decimal, .equal],]
     
     var body: some View {
         ZStack {
@@ -56,6 +60,7 @@ struct ContentView: View {
                                 
                             }, label: {
                                 Text(item.rawValue)
+                                    .font(.system(size: 35))
                                     .frame(width: 60, height: 60)
                                     .background(Color.orange)
                                     .foregroundColor(.blue)
