@@ -59,7 +59,7 @@ enum Operation {
 struct ContentView: View {
     
 @State var value = "0"
-    
+@state var runningValue = "0"
 @State var currenOperation: Operation = .none
     
     let buttons: [[CalcButtons]] = [
@@ -107,25 +107,52 @@ struct ContentView: View {
   }
     func didTap(button: CalcButtons) {
         switch button {
-               case .add, .subtract, .mutliply, .divide, .equal:
-                   if button == .add {
-                       self.currentOperation = .add
-                       self.runningNumber = Int(self.value) ?? 0
-                   }
-                   else if button == .subtract {
-                                  self.currentOperation = .subtract
-                                  self.runningNumber = Int(self.value) ?? 0
-                              }
-                   else if button == .mutliply {
-                                  self.currentOperation = .multiply
-                                  self.runningNumber = Int(self.value) ?? 0
-                              }
-                   else if button == .divide {
-                                   self.currentOperation = .divide
-                                   self.runningNumber = Int(self.value) ?? 0
-                               }
-        
-    }
+                case .add, .subtract, .mutliply, .divide, .equal:
+                    if button == .add {
+                        self.currentOperation = .add
+                        self.runningNumber = Int(self.value) ?? 0
+                    }
+                    else if button == .subtract {
+                        self.currentOperation = .subtract
+                        self.runningNumber = Int(self.value) ?? 0
+                    }
+                    else if button == .mutliply {
+                        self.currentOperation = .multiply
+                        self.runningNumber = Int(self.value) ?? 0
+                    }
+                    else if button == .divide {
+                        self.currentOperation = .divide
+                        self.runningNumber = Int(self.value) ?? 0
+                    }
+                    else if button == .equal {
+                        let runningValue = self.runningNumber
+                        let currentValue = Int(self.value) ?? 0
+                        switch self.currentOperation {
+                        case .add: self.value = "\(runningValue + currentValue)"
+                        case .subtract: self.value = "\(runningValue - currentValue)"
+                        
+                        case .none:
+                            break
+                        }
+                    }
+
+                    if button != .equal {
+                        self.value = "0"
+                    }
+                case .clear:
+                    self.value = "0"
+                case .decimal, .negative, .percent:
+                    break
+                default:
+                    let number = button.rawValue
+                    if self.value == "0" {
+                        value = number
+                    }
+                    else {
+                        self.value = "\(self.value)\(number)"
+                    }
+                }
+            }
     
     //calculating button size to fit screen
     func buttonWidth(item: CalcButtons) -> CGFloat {
