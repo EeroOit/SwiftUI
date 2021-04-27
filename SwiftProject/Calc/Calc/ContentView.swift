@@ -27,6 +27,8 @@ enum CalcButtons: String {
     case decimal = ","
     case percent = "%"
     case negative = "-/+"
+    case square = "√"
+    case exponentiation = "x²"
 
     var buttonBackgroundColor: Color{
         switch self {
@@ -53,7 +55,7 @@ enum CalcButtons: String {
 }
 
 enum Operation {
-    case add, subtract, multiply, divide, none
+    case add, subtract, multiply, divide, square, exponentiation, none
 }
 
 struct ContentView: View {
@@ -63,7 +65,8 @@ struct ContentView: View {
     @State var currentOperation: Operation = .none
     
     let buttons: [[CalcButtons]] = [
-        [.clear, .negative, .percent, .divide],
+        [.square, .exponentiation],
+        [.clear, .negative, .percent, .divide,],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
         [.one, .two, .three, .add],
@@ -107,7 +110,7 @@ struct ContentView: View {
   }
     func didTap(button: CalcButtons) {
         switch button {
-                case .add, .subtract, .multiply, .divide, .equal:
+                case .add, .subtract, .multiply, .divide, .equal, .exponentiation, .square:
                     if button == .add {
                         self.currentOperation = .add
                         self.runningValue = Int(self.value) ?? 0
@@ -124,6 +127,14 @@ struct ContentView: View {
                         self.currentOperation = .divide
                         self.runningValue = Int(self.value) ?? 0
                     }
+                    else if button == .square {
+                        self.currentOperation = .square
+                        self.runningValue = Int(self.value) ?? 0
+                    }
+                    else if button == .exponentiation {
+                        self.currentOperation = .exponentiation
+                        self.runningValue = Int(self.value) ?? 0
+                    }
                     else if button == .equal {
                         let runningValue = self.runningValue
                         let currentValue = Int(self.value) ?? 0
@@ -132,6 +143,9 @@ struct ContentView: View {
                         case .subtract: self.value = "\(runningValue - currentValue)"
                         case .multiply: self.value = "\(runningValue * currentValue)"
                         case .divide: self.value = "\(runningValue / currentValue)"
+                        case .square: self.value = "\(runningValue / currentValue)"
+                        case .exponentiation: self.value = "\(runningValue / currentValue)"
+
                         case .none:
                             break
                         }
